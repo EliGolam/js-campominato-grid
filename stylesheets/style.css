@@ -1,0 +1,66 @@
+/* --------------------------------------------------------------------------------- */
+/*#region GENERAL DEFAULTS  */
+body {
+    font: var(--fontweight-default) var(--fontsize-default) var(--fontfamily-default);
+    columns: var(--clr-dark-grey);
+}
+/*#endregion GENERAL DEFAULTS  */
+/* --------------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------------- */
+/*#region UTILITIES */ 
+/* ------------------------------------------ */
+/*#region aesthetic elements */
+.flow > * + * {
+    margin-top: var(--flow-spacing);
+}
+/*#endregion aesthetic elements */
+
+/*#endregion UTILITIES */
+/* --------------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------------- */
+/*#region COMPOSITION */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    background: var(--clr-neutral-dark);
+    color: var(--clr-neutral);
+    font-family: 'IBM Plex Mono', monospace, sans-serif;
+  }
+/*#endregion COMPOSITION */
+/* --------------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------------- */
+/*#region BLOCKS: component specific rules */
+.box {
+    gap: .5em;
+}
+
+.box-cell {
+    width: calc(100% / 10 - .5em);
+    aspect-ratio: 1 / 1;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+
+/*#endregion BLOCKS: component specific rules */
+/* --------------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------------- */
+/*#region MEDIA QUERIES */
+/* ********************************* */
+/*#region MEDIA HOVER */
+
+/*#endregion MEDIA HOVER */
+@media (hover) {
+    .box-cell:hover {
+      background-color: lightseagreen;
+    }
+  }
+/*#endregion MEDIA QUERIES */
+/* --------------------------------------------------------------------------------- */
