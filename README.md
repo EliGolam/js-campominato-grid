@@ -1,2 +1,1 @@
-# js-campominato-grid
-Exercise Boolean: MineSweeper(-ish)
+# Exercise Boolean: MineSweeper(-ish)
