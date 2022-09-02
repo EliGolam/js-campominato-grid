@@ -50,6 +50,7 @@ function createSquare(value) {
 function popBoxes() {
     console.log(this);
     console.log(this.children[0].innerHTML);
+    value = isAnInt(this.children[0].innerHTML) ? parseInt(this.children[0].innerHTML) : 0;
 
     if(!this.classList.contains('popped')) {
         this.classList.add('popped');
