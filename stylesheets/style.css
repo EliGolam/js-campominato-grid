@@ -2,7 +2,6 @@
 /*#region GENERAL DEFAULTS  */
 body {
     font: var(--fontweight-default) var(--fontsize-default) var(--fontfamily-default);
-    columns: var(--clr-dark-grey);
 }
 /*#endregion GENERAL DEFAULTS  */
 /* --------------------------------------------------------------------------------- */
@@ -25,7 +24,7 @@ body {
 body {
     min-height: 100vh;
     line-height: 1.5;
-    background: var(--clr-neutral-dark);
+    background: linear-gradient(-60deg, var(--clr-neutral-dark), var(--clr-neutral-grey)) ;
     color: var(--clr-neutral);
     font-family: 'IBM Plex Mono', monospace, sans-serif;
   }
