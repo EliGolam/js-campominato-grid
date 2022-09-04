@@ -16,15 +16,17 @@ startBtn.addEventListener('click', () => {
     if(!mainBox.classList.contains('active')) {
         // Activate mainBox
         mainBox.classList.add('active');
-        
+        startBtn.textContent = 'Reset';
+
         const cellAmount = 100;
         const numSet = generateRandSet(cellAmount);
-        startBtn.textContent = 'Reset';
+        
 
         // Create cells within the box
         for (const num of numSet){
             console.log('DEBUG - cell number:', num);
             const cell = createSquare(num);
+            cell.addEventListener('click', popBoxes);
 
             mainBox.append(cell);
         }
@@ -33,10 +35,10 @@ startBtn.addEventListener('click', () => {
         while(mainBox.firstChild) {
             mainBox.removeChild(mainBox.firstChild);
         }
-        startBtn.textContent = 'Start';
-
+        
         // Deactivate mainBox
         mainBox.classList.remove('active');
+        startBtn.textContent = 'Start';
     }    
 });
 
@@ -61,8 +63,6 @@ function createSquare(value) {
     
     square.append(content);
     console.log('DEBUG - cell created', value); 
-
-    square.addEventListener('click', popBoxes);
 
     return square;
 }
