@@ -4,24 +4,45 @@ console.log('DEBUG - script.js: OK!');
 // Global variables and initializations
 const startBtn = document.getElementById('startButton');
 
+
+/* ************************************************************************************** */
 // Start button on click
 startBtn.addEventListener('click', () => {
     console.log('DEBUG - startBtn: CLICKED');
 
     // Local variables
-    const cellAmount = 100;
     const mainBox = document.getElementById('main-box');
 
-    // Create cells within the box
-    for (let i = 0; i < cellAmount; i++){
-        const cell = createSquare(i);
+    if(!mainBox.classList.contains('active')) {
+        // Activate mainBox
+        mainBox.classList.add('active');
+        
+        const cellAmount = 100;
+        const numSet = generateRandSet(cellAmount);
+        startBtn.textContent = 'Reset';
 
-        mainBox.append(cell);
-    }
-})
+        // Create cells within the box
+        for (const num of numSet){
+            console.log('DEBUG - cell number:', num);
+            const cell = createSquare(num);
+
+            mainBox.append(cell);
+        }
+
+    } else {
+        while(mainBox.firstChild) {
+            mainBox.removeChild(mainBox.firstChild);
+        }
+        startBtn.textContent = 'Start';
+
+        // Deactivate mainBox
+        mainBox.classList.remove('active');
+    }    
+});
 
 
 
+/* ************************************************************************************** */
 // FUNCTIONS
 function createSquare(value) {
     value = (value === null || typeof value === undefined) ? '' : value
@@ -31,11 +52,11 @@ function createSquare(value) {
     square.classList.add('box-cell', 'd-flex', 'justify-content-center', 'align-items-center');
 
     const content = document.createElement('p');
-    content.classList.add('text-center', 'm-0');
+    content.classList.add('text-center', 'm-0', 'cell-content');
 
     if(isAnInt(value)){
-        content.innerHTML = value;
-        console.log(content.innerHTML);
+        content.textContent = value;
+        console.log(content.textContent);
     }
     
     square.append(content);
@@ -49,8 +70,9 @@ function createSquare(value) {
 
 function popBoxes() {
     console.log(this);
-    console.log(this.children[0].innerHTML);
-    value = isAnInt(this.children[0].innerHTML) ? parseInt(this.children[0].innerHTML) : 0;
+    const content = this.querySelector('.cell-content');
+    console.log(content, content.textContent);
+    value = isAnInt(content.textContent) ? parseInt(content.textContent) : 0;
 
     if(!this.classList.contains('popped')) {
         this.classList.add('popped');
@@ -66,6 +88,19 @@ function popBoxes() {
     }
 
     console.log(this.classList);
+}
+
+
+function generateRandSet(size) {
+    const randSet = new Set();
+
+    while (randSet.size < size){
+        randSet.add(Math.ceil(Math.random() * size));
+    }
+
+    console.log(randSet.size, randSet);
+
+    return randSet;
 }
 
 
