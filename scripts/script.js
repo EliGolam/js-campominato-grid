@@ -107,3 +107,17 @@ function generateRandSet(size) {
 function isAnInt(value){
     return (typeof value === undefined || value === null || isNaN(parseInt(value))) ? false : true;
 }
+
+// Function to randomize array
+function randomNumArray () {
+    const array = [];
+
+    array.sort(function(){
+        const random = Math.round(Math.random);
+        return random === 1 ? 1 : -1;
+    })
+
+    console.log(array);
+
+    return array;
+}

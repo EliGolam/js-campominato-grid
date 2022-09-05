@@ -2,14 +2,15 @@
 /* These are some generic design choices for colour schemes, fonts, gutters and gaps */
 :root {
     /* Color Schemes */
-    --clr-primary: #0d6efd;
-    --clr-secondary: hsl(203, 26%, 17%);
-    --clr-accent: #8b1428;
+    --clr-primary: #1389b2;
+    --clr-secondary: #0cd6a1;
+    --clr-tertiary: #ffd166;
+    --clr-accent: #f0466f;
     
     --clr-neutral-dark: hsl(207, 19%, 5%);
     --clr-neutral-grey: hsl(203, 36%, 22%);
-    --clr-neutral: hsl(0, 0%, 100%);
-    --clr-accent: hsl(142, 90%, 61%);
+    --clr-neutral-white: hsl(0, 0%, 100%);
+    
 
     /* FONT */
     --fontfamily-default: 'Roboto', Helvetica, Arial, sans-serif;
